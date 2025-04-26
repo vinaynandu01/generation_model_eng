@@ -3,7 +3,7 @@ services:
     name: transformer-response-api
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn drive_model:app
+    startCommand: gunicorn app:app
     envVars:
       - key: PORT
         value: 5000
