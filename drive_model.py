@@ -7,13 +7,13 @@ from flask import Flask, request, jsonify
 from sklearn.model_selection import train_test_split
 import gdown
 import torch
+import os
 
-
-url = f"https://drive.google.com/uc?id=1RCZShB5ohy1HdU-mogcP16TbeVv9txpY"
-df = pd.read_csv(url)
+file_url = os.getenv("file_url")
+df = pd.read_csv(file_url)
 
 # Download the file
-file_id = "133floLngW13ovW8wlZ3Al-7RwOGNpwP5"
+model_id = os.getenv("model_id")
 url = f'https://drive.google.com/uc?id={file_id}'
 output = 'gpt_model.pt'
 gdown.download(url, output, quiet=False)
