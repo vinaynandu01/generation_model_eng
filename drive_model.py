@@ -14,7 +14,7 @@ df = pd.read_csv(file_url)
 
 # Download the file
 model_id = os.getenv("model_id")
-url = f'https://drive.google.com/uc?id={file_id}'
+url = f'https://drive.google.com/uc?id={model_id}'
 output = 'gpt_model.pt'
 gdown.download(url, output, quiet=False)
 
