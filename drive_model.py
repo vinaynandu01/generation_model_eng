@@ -18,10 +18,6 @@ url = f'https://drive.google.com/uc?id={model_id}'
 output = 'gpt_model.pt'
 gdown.download(url, output, quiet=False)
 
-model = torch.load('gpt_model.pt', map_location=torch.device('cpu'))
-model.eval()
-
-
 # Tokenizer (Scratch)
 class ScratchTokenizer:
     def __init__(self):
@@ -105,6 +101,8 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model = GPTModel(tokenizer.vocab_size).to(device)
 optimizer = optim.AdamW(model.parameters(), lr=2e-4)
 criterion = nn.CrossEntropyLoss(label_smoothing=0.1)
+model = torch.load('gpt_model.pt', map_location=torch.device('cpu'))
+model.eval()
 
 # Training Function
 def train_epoch(model, loader, optimizer, criterion, device):
