@@ -159,4 +159,7 @@ def query_model():
     response = generate_response(model, query)
     return jsonify({"query": query, "response": response})
 
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=7120)
+
 
