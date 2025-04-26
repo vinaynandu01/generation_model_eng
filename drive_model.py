@@ -18,8 +18,7 @@ url = f'https://drive.google.com/uc?id={model_id}'
 output = 'gpt_model.pt'
 gdown.download(url, output, quiet=False)
 
-# Load the model
-model = torch.load('gpt_model.pt')
+model = torch.load('gpt_model.pt', map_location=torch.device('cpu'))
 model.eval()
 
 
