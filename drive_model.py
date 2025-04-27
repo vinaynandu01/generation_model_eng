@@ -9,12 +9,10 @@ import gdown
 import torch
 import os
 
-file_url = os.getenv("file_url")
-df = pd.read_csv(file_url)
-
+url = f"https://drive.google.com/uc?id=1RCZShB5ohy1HdU-mogcP16TbeVv9txpY"
+df = pd.read_csv(url)
 # Download the file
-model_id = os.getenv("model_id")
-url = f'https://drive.google.com/uc?id={model_id}'
+url = "https://drive.google.com/uc?id=133floLngW13ovW8wlZ3Al-7RwOGNpwP5"
 output = 'gpt_model.pt'
 gdown.download(url, output, quiet=False)
 
